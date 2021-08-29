@@ -6,15 +6,9 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         // get the input
-        String inputs = scanner.nextLine();
-
-        // split the input
-        String[] inputNumbers = inputs.split(" ");
-
-        // convert the numbers
-        int roadType = Integer.parseInt(inputNumbers[0]);
-        float totalDistanceInMeters = Float.parseFloat(inputNumbers[1]);
-        float totalTimeInMinutes = Float.parseFloat(inputNumbers[2]);
+        int roadType = scanner.nextInt();
+        float totalDistanceInMeters = scanner.nextFloat();
+        float totalTimeInMinutes = scanner.nextFloat();
 
         // convert to km and hours
         float totalDistanceInKm = totalDistanceInMeters / 1000;

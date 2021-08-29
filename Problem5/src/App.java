@@ -6,13 +6,10 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         // Input four float numbers; they could be positive or negative.
-        String numbersText = scanner.nextLine();
-        String[] numbers = numbersText.split(" ");
-
-        float firstNum = Float.parseFloat(numbers[0]);
-        float secondNum = Float.parseFloat(numbers[1]);
-        float thirdNum = Float.parseFloat(numbers[2]);
-        float fourthNum = Float.parseFloat(numbers[3]);
+        float firstNum = scanner.nextFloat();
+        float secondNum = scanner.nextFloat();
+        float thirdNum = scanner.nextFloat();
+        float fourthNum = scanner.nextFloat();
 
         float sum = 0.0f;
 

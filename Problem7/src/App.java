@@ -5,17 +5,9 @@ public class App {
         // scanner
         Scanner scanner = new Scanner(System.in);
 
-        // get the input
-        String inputs = scanner.nextLine();
-
-        // split the input
-        String[] inputNumbers = inputs.split(" ");
-
-        // convert the numbers to float
-        // first index is the weight
-        // second index is the height
-        float weight = Float.parseFloat(inputNumbers[0]);
-        float height = Float.parseFloat(inputNumbers[1]);
+        // get the inputs
+        float weight = scanner.nextFloat();
+        float height = scanner.nextFloat();
 
         // calculate the body mass index
         float bmi = 703 * (weight / (height * height));

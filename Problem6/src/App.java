@@ -6,10 +6,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         // get the input
-        String inputNumber = scanner.nextLine();
-
-        // convert input string to integer
-        int num = Integer.parseInt(inputNumber);
+        int num = scanner.nextInt();
 
         // the left most number
         int leftMost = num / 100;
