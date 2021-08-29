@@ -5,13 +5,10 @@ public class App {
         // scanner
         Scanner scanner = new Scanner(System.in);
 
-        // get the input
-        String inputs = scanner.nextLine();
-        String[] inputNumbers = inputs.split(" ");
-
-        int num1 = Integer.parseInt(inputNumbers[0]);
-        int num2 = Integer.parseInt(inputNumbers[1]);
-        int num3 = Integer.parseInt(inputNumbers[2]);
+        // get the inputs
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
 
         if (num1 < num2 && num1 < num3) {
             if (num2 < num3) {

@@ -6,18 +6,9 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         // Input three integers and compute the cubes of each of them.
-        String numbersText = scanner.nextLine();
-
-        // split numbers
-        String[] numbers = numbersText.split(" ");
-        String firstNumber = numbers[0];
-        String secondNumber = numbers[1];
-        String thirdNumber = numbers[2];
-
-        // conver the inputs to numbers
-        int num1 = Integer.parseInt(firstNumber);
-        int num2 = Integer.parseInt(secondNumber);
-        int num3 = Integer.parseInt(thirdNumber);
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
 
         // cube the numbers
         int cubeNum1 = num1 * num1 * num1;
