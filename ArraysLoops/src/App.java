@@ -6,6 +6,17 @@ public class App {
             {"h", "h", "i", "i"}
         };
 
+        // looping the outer most array
+        for(int i = 0; i < alphabets.length; i++) {
+            // looping the inner most array 
+            for (int j = 0; j < alphabets[i].length; j++) {
+                System.out.print(" " + alphabets[i][j] + " ");
+            }
+
+            // print a new line after end of the row
+            System.out.println();
+        }
+
         // access "g"
         String g = alphabets[1][2];
 
@@ -14,16 +25,6 @@ public class App {
 
         System.out.println(g);
         System.out.println(h);
-
-        // print everything
-        for(int i = 0; i < alphabets.length; i++) {
-            for (int j = 0; j < alphabets[i].length; j++) {
-                System.out.print(" " + alphabets[i][j] + " ");
-            }
-
-            // print a new line after end of the row
-            System.out.println();
-        }
 
         int[][][] numbers = {
             {
