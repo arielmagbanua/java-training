@@ -1,14 +1,14 @@
-import java.util.Scanner;
+public class FizzBuzz {
+    private int num;
 
-public class App {
-    public static void main(String[] args) throws Exception {
-        // scanner
-        Scanner scanner = new Scanner(System.in);
+    // Sets the num
+    public void setNum(int num) {
+        this.num = num;
+    }
 
-        // Input a positive integer in one line. This will serve as the ending point of your loop.
-        int num = scanner.nextInt();
-
-        for (int i = 1; i <= num; i++) {
+    // Runs the fizz buzz loop
+    public void run() {
+        for(int i = 1; i <= num; i++) {
             if (i % 3 == 0 && i % 5 != 0) {
                 // print Buzz if i is divisible by 3 only
                 System.out.println("Fizz");
@@ -22,7 +22,5 @@ public class App {
                 System.out.println(i);
             }
         }
-
-        scanner.close();
     }
 }
