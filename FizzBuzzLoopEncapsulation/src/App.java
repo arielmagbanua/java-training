@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class App {
+class App {
     public static void main(String[] args) throws Exception {
         // scanner
         Scanner scanner = new Scanner(System.in);
@@ -9,9 +9,8 @@ public class App {
         // your loop.
         int num = scanner.nextInt();
 
-        // create the instance f FizzBuzz
-        FizzBuzz fizzBuzz = new FizzBuzz();
-        fizzBuzz.setNum(num);
+        // // create the instance f FizzBuzz
+        FizzBuzz fizzBuzz = new FizzBuzz(num);
         fizzBuzz.run();
 
         scanner.close();

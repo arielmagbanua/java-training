@@ -1,6 +1,10 @@
 public class FizzBuzz {
     private int num;
 
+    public FizzBuzz(int num) {
+       this.num = num; 
+    }
+
     // Sets the num
     public void setNum(int num) {
         this.num = num;
