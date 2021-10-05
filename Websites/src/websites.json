@@ -1,0 +1,122 @@
+[
+  {
+    "url": "www.google.com",
+    "name": "Google",
+    "currentDayVisit": 4,
+    "totalVisits": 100
+  },
+  {
+    "url": "www.facebook.com",
+    "name": "Facebook",
+    "currentDayVisit": 3,
+    "totalVisits": 1000
+  },
+  {
+    "url": "www.yahoo.com",
+    "name": "Yahoo",
+    "currentDayVisit": 2,
+    "totalVisits": 30
+  },
+  {
+    "url": "www.aliexpress.com",
+    "name": "Ali Express",
+    "currentDayVisit": 5,
+    "totalVisits": 90
+  },
+  {
+    "url": "www.amazon.com",
+    "name": "Amazon",
+    "currentDayVisit": 1,
+    "totalVisits": 10000
+  },
+  {
+    "url": "www.foo.com",
+    "name": "Foo",
+    "currentDayVisit": 3,
+    "totalVisits": 200
+  },
+  {
+    "url": "www.bar.com",
+    "name": "Bar",
+    "currentDayVisit": 10,
+    "totalVisits": 290
+  },
+  {
+    "url": "www.twitter.com",
+    "name": "Twitter",
+    "currentDayVisit": 190,
+    "totalVisits": 5000
+  },
+  {
+    "url": "www.pinterest.com",
+    "name": "Pinterest",
+    "currentDayVisit": 50,
+    "totalVisits": 900
+  },
+  {
+    "url": "www.msn.com",
+    "name": "Microsoft Network",
+    "currentDayVisit": 1,
+    "totalVisits": 290
+  },
+  {
+    "url": "www.apple.com",
+    "name": "Apple",
+    "currentDayVisit": 80,
+    "totalVisits": 1000
+  },
+  {
+    "url": "www.samsung.com",
+    "name": "Samsung",
+    "currentDayVisit": 45,
+    "totalVisits": 123
+  },
+  {
+    "url": "www.motorola.com",
+    "name": "Motorola",
+    "currentDayVisit": 7,
+    "totalVisits": 3214
+  },
+  {
+    "url": "www.coursehero.com",
+    "name": "Course Hero",
+    "currentDayVisit": 7,
+    "totalVisits": 210
+  },
+  {
+    "url": "www.coursera.com",
+    "name": "Coursera",
+    "currentDayVisit": 8,
+    "totalVisits": 234
+  },
+  {
+    "url": "www.udemy.com",
+    "name": "Udemy",
+    "currentDayVisit": 12,
+    "totalVisits": 29187
+  },
+  {
+    "url": "www.youtube.com",
+    "name": "Youtube",
+    "currentDayVisit": 20,
+    "totalVisits": 123412
+  },
+  {
+    "url": "www.nba.com",
+    "name": "NBA",
+    "currentDayVisit": 10,
+    "totalVisits": 330
+  },
+  {
+    "url": "www.linkedin.com",
+    "name": "Linkedin",
+    "currentDayVisit": 150,
+    "totalVisits": 21316
+  },
+  {
+    "url": "www.indeed.com",
+    "name": "Indeed",
+    "currentDayVisit": 20,
+    "totalVisits": 220
+  }
+]
