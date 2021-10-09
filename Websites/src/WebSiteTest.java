@@ -5,6 +5,7 @@ import org.json.simple.parser.ParseException;
 import java.io.*;
 import java.nio.file.Paths;
 import java.util.*;
+import static java.util.Collections.*;
 
 public class WebSiteTest {
     private static List<WebSite> webSites = new ArrayList<>();
@@ -12,7 +13,7 @@ public class WebSiteTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        int input = -1;
+        int input;
 
         while (true) {
             System.out.println("Please choose: ");
@@ -28,7 +29,7 @@ public class WebSiteTest {
                 continue;
             }
 
-            if (input >= 1 && input <=3) {
+            if (input >= 1 && input <= 3) {
                 break;
             }
         }
@@ -39,9 +40,9 @@ public class WebSiteTest {
             getWebsitesFromInput();
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) { // Set I originally to 5
             System.out.println("-----------[Day " + (i + 1) + " ]-----------");
-            visit10WebsiteRandomly();
+            visit20WebsitesRandomly();
             displayPopularWebSiteEachDay();
         }
 
@@ -51,23 +52,28 @@ public class WebSiteTest {
 
     private static void getWebsitesFromInput() {
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
-            int input = -1;
+            int input;
             System.out.println("Please choose: ");
-            System.out.println(" - Add website (1)");
+            System.out.println(" - Add a website manually by inputting (1)");
+            System.out.println("Else");
             System.out.println(" - Exit (2)");
 
             try {
                 // grab the choice
+                // System.out.print(" Input choice 2 to begin: ");
                 System.out.print("choice: ");
                 input = scanner.nextInt();
                 scanner.nextLine();
+
             } catch (Exception e) {
                 continue;
             }
 
+
             if (input == 2) {
+                //webSite.toString();
+                System.out.println(" Bye");
                 break;
             } else {
                 // scan for website properties and add to websites
@@ -83,9 +89,12 @@ public class WebSiteTest {
                 // create website instance and add it
                 WebSite webSite = new WebSite(url, name, currentDayVisit, totalVisits);
                 webSites.add(webSite);
+                // webSite.toString();
+                //System.out.println(webSite);
             }
         }
     }
+
 
     /**
      * Initialize and read the websites from json file
@@ -102,7 +111,7 @@ public class WebSiteTest {
 
         try {
             // read the json file
-            Reader reader = new FileReader(projectSourceDir + "./websites.json");
+            Reader reader = new FileReader(projectSourceDir + "/websites.json");
             // parse the websites as json array
             JSONArray jsonArray = (JSONArray) parser.parse(reader);
 
@@ -110,7 +119,7 @@ public class WebSiteTest {
             Iterator iterator = jsonArray.iterator();
             while (iterator.hasNext()) {
                 // get the website object
-                JSONObject websiteObj = (JSONObject)iterator.next();
+                JSONObject websiteObj = (JSONObject) iterator.next();
 
                 // get the properties
                 String url = websiteObj.get("url").toString();
@@ -120,50 +129,84 @@ public class WebSiteTest {
 
                 WebSite webSite = new WebSite(url, name, currentDayVisit, totalVisits);
                 webSites.add(webSite);
+                System.out.println(websiteObj.toString());
             }
+
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void visit10WebsiteRandomly() {
+    private static void visit20WebsitesRandomly() {
         Random rand = new Random();
 
-        for (int i = 0; i < webSites.size(); i++) {
-            // select random website from 20
-            int random_integer1 = rand.nextInt(20);
+        // grab the actual number or count of website
+        // since you want to loop or randomize base on the number of websites
+        // this is to avoid any index bounds exception.
+        int webSiteCount = webSites.size();
+
+        for (int i = 0; i < webSiteCount; i++) {
+            // select random website from among the available websites
+            // this will generate random index from 0 - (webSiteCount - 1)
+            int randomIndex = rand.nextInt(webSiteCount);
 
             // Generate random number 0-3 for daily visit
-            int random_integer2 = rand.nextInt(4);
+            int randomNumberOfVisits = rand.nextInt(4);
 
-            int totalVisit = webSites.get(random_integer1).getTotalVisits();
-            webSites.get(random_integer1).setCurrentDayVisit(random_integer2);
-            webSites.get(random_integer1).setTotalVisits(totalVisit + random_integer2);
+            int totalVisits = webSites.get(randomIndex).getTotalVisits();
+
+            webSites.get(randomIndex).setCurrentDayVisit(randomNumberOfVisits);
+            webSites.get(randomIndex).setTotalVisits(totalVisits + randomNumberOfVisits);
+            //System.out.println(rand.toString());
         }
     }
 
+
     private static void displayPopularWebSiteEachDay() {
-        Collections.sort(webSites, new SortWebSitesByCurrentDayVisit());
+        sort(webSites, new SortWebSitesByCurrentDayVisit());
 
         for (int i = 0; i < webSites.size(); i++) {
             System.out.printf("%-30s  : [" + (i + 1) + "]\n", webSites.get(i).getUrl());
         }
     }
-
     private static void displayTop3PopularWebSite() {
-        Collections.sort(webSites, new SortWebSitesByTotelVisit());
+        sort(webSites, new SortWebSitesByTotelVisit());
 
-        for (int i = 0; i < 3; i++) {
+        int upperBound = webSites.size()-3;
+        for (int i = 0; i<upperBound; i++) {
             System.out.printf("%-20s [totelVisit : %s] : [" + (i + 1) + "]\n", webSites.get(i).getUrl(),
                     webSites.get(i).getTotalVisits());
         }
     }
 }
 
-/**
- *
- * Comparator class for Sort Web Sites By CurrentDayVisit descending order
- */
+   /* private static void displayTop3PopularWebSite() {
+        Collections.sort(webSites, new SortWebSitesByTotelVisit());
+
+        for (int i = 0; i < 3; i++) {
+            System.out.printf("%-20s [totelVisit : %s] : [" + (i + 1) + "]\n", webSites.get(i).getUrl(),
+                    webSites.get(i).getTotalVisits());
+        }
+    }*/
+
+/* private static void displayTop3PopularWebSite() {
+
+     //Collections.sort(webSites, new SortWebSitesByTotelVisit());
+     int upperBound = webSites.size() & webSites.size();
+     for (int i = 0; i < upperBound; i++) {
+         System.out.printf("%-20s [totelVisit : %s] : [" + (i + 1) + "]\n", webSites.get(i).getUrl(),
+                 webSites.get(i).getTotalVisits());
+     }
+    /* Collections.sort(webSites, new SortWebSitesByTotelVisit());
+
+     for (int i = 0; i < 3; i++) {
+         System.out.printf("%-20s [totelVisit : %s] : [" + (i + 1) + "]\n", webSites.get(i).getUrl(),
+                 webSites.get(i).getTotalVisits());
+
+
+ /**
+  * Comparator class for Sort Web Sites By CurrentDayVisit descending order
+  */
 class SortWebSitesByCurrentDayVisit implements Comparator<WebSite> {
     @Override
     public int compare(WebSite o1, WebSite o2) {
