@@ -36,18 +36,27 @@ public class WebSiteTest {
 
         if (input == 2) {
             initializeWebSiteList();
+
+            for (int i = 0; i < 5; i++) { // Set I originally to 5
+                System.out.println("-----------[Day " + (i + 1) + " ]-----------");
+                visit20WebsitesRandomly();
+                displayPopularWebSiteEachDay();
+            }
+
+            System.out.println("********* Top 3 WebSites **********");
+            displayTop3PopularWebSite();
         } else {
             getWebsitesFromInput();
-        }
 
-        for (int i = 0; i < 5; i++) { // Set I originally to 5
-            System.out.println("-----------[Day " + (i + 1) + " ]-----------");
-            visit20WebsitesRandomly();
-            displayPopularWebSiteEachDay();
-        }
+            for (int i = 0; i < 5; i++) { // Set I originally to 5
+                System.out.println("-----------[Day " + (i + 1) + " ]-----------");
+                visit20WebsitesRandomly();
+                displayPopularWebsitesPerDay();
+            }
 
-        System.out.println("********* Top 3 WebSites **********");
-        displayTop3PopularWebSite();
+            System.out.println("********* Top 3 WebSites **********");
+            displayPopularWebsitesTop3();
+        }
     }
 
     private static void getWebsitesFromInput() {
@@ -176,6 +185,58 @@ public class WebSiteTest {
         for (int i = 0; i<upperBound; i++) {
             System.out.printf("%-20s [totelVisit : %s] : [" + (i + 1) + "]\n", webSites.get(i).getUrl(),
                     webSites.get(i).getTotalVisits());
+        }
+    }
+
+    private static void displayPopularWebsitesPerDay() {
+        int n = webSites.size();
+
+        // convert to array
+        WebSite[] sites = webSites.toArray(WebSite[]::new);
+
+        // sort the websites by current day visit
+        for (int i = 0; i < n; i++) {
+            int maxRank = i;
+            for (int j = i + 1; j < n; j++) {
+                if (sites[j].getCurrentDayVisit() > sites[maxRank].getCurrentDayVisit()) {
+                    maxRank = j;
+                }
+            }
+
+            WebSite temp = sites[maxRank];
+            sites[maxRank] = sites[i];
+            sites[i] = temp;
+        }
+
+        for (int i = 0; i < sites.length; i++) {
+            System.out.printf("%-30s  : [" + (i + 1) + "]\n", sites[i].getUrl());
+        }
+    }
+
+    private static void displayPopularWebsitesTop3()
+    {
+        int n = webSites.size();
+
+        // convert to array
+        WebSite[] sites = webSites.toArray(WebSite[]::new);
+
+        // sort the websites by total visit
+        for (int i = 0; i < n; i++) {
+            int maxRank = i;
+            for (int j = i + 1; j < n; j++) {
+                if (sites[j].getTotalVisits() > sites[maxRank].getTotalVisits()) {
+                    maxRank = j;
+                }
+            }
+
+            WebSite temp = sites[maxRank];
+            sites[maxRank] = sites[i];
+            sites[i] = temp;
+        }
+
+        for (int i = 0; i < 3; i++) {
+            System.out.printf("%-20s [totalVisit : %s] : [" + (i + 1) + "]\n", sites[i].getUrl(),
+                    sites[i].getTotalVisits());
         }
     }
 }
