@@ -46,6 +46,8 @@ public class Main {
         // print the remaining captains
         System.out.println("Captains left:");
         printCaptains(captains);
+
+        scanner.close();
     }
 
     static void printCaptains(List<Captain> captains) {
