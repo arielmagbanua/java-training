@@ -1,0 +1,3 @@
+INSERT INTO Employee (emp_name, emp_email, emp_address, emp_position) VALUES ("Mary smith", "smithm@strose.edu", "1234 Main Street, Albany, Ny", "Director IT");
+INSERT INTO Employee (emp_name, emp_email, emp_address, emp_position) VALUES ("John Pat", "patj@strose.edu", "12 Allen Street, Albany, NY", "Helpdesk Tech");
+INSERT INTO Employee (emp_name, emp_email, emp_address, emp_position) VALUES ("Tony Gillian", "gillinat@strose.edu", "77 Manning Street, Albany, NY", "Network Analyst");
