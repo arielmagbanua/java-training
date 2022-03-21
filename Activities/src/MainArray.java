@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Main {
+public class MainArray {
     public static void main(String[] args) {
         // Question 1
         // create array list and store the data
