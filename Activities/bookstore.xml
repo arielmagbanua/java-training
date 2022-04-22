@@ -1,0 +1,37 @@
+<bookstore>
+    <book genre="thriller" publicationdate="January 1, 2016" ISBN="1409167860">
+        <title>Bourne Identity</title>
+        <author>
+            <first-name>Robert</first-name>
+            <last-name>Ludlum</last-name>
+        </author>
+        <price>9.99</price>
+    </book>
+
+    <book genre="spy fiction" publicationdate="September 7, 2010" ISBN="9780425240335">
+        <title>The Hunt for Red October (A Jack Ryan Novel)</title>
+        <author>
+            <first-name>Tom</first-name>
+            <last-name>Clancy</last-name>
+        </author>
+        <price>9.99</price>
+    </book>
+
+    <book genre="thriller" publicationdate="May 1, 2013" ISBN="1407243195">
+        <title>The Bourne Supremacy</title>
+        <author>
+            <first-name>Robert</first-name>
+            <last-name>Ludlum</last-name>
+        </author>
+        <price>10.29</price>
+    </book>
+
+    <book genre="religion" publicationdate="May 24, 2001" ISBN="9781581342697">
+        <title>The Keys to Spiritual Growth: Unlocking the Riches of God</title>
+        <author>
+            <first-name>John</first-name>
+            <last-name>MacArthur</last-name>
+        </author>
+        <price>19.99</price>
+    </book>
+</bookstore>
