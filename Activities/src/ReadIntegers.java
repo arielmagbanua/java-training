@@ -1,21 +1,10 @@
 import java.io.*;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class ReadIntegers {
     public static void main(String[] args) {
-        // get the project source directory
-        // this is technically project_folder/src/
-        String projectSourceDir = Paths.get("src")
-                .toAbsolutePath()
-                .toString();
-
-        // get the full path of the file.txt
-        // this is technically project_folder/src/file.txt
-        String filePath = projectSourceDir + "/file.txt";
-
         // read the file and extract the integers
-        List<Integer> integers = readFile(filePath);
+        List<Integer> integers = readFile("file.txt");
 
         if (integers.size() > 0) {
             // this means the file exists and extracted the numbers therefore print the list
@@ -36,11 +25,11 @@ public class ReadIntegers {
             }
 
             // write the numbers string to the file
-            boolean fileWriteResult = writeToFile(numbers, filePath);
+            boolean fileWriteResult = writeToFile(numbers, "file.txt");
 
             if (fileWriteResult) {
                 // written to file so read again
-                List<Integer> sortedIntegers = readFile(filePath);
+                List<Integer> sortedIntegers = readFile("file.txt");
                 // print
                 System.out.println(sortedIntegers);
             }
